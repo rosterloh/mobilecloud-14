@@ -17,6 +17,8 @@
  */
 package org.magnum.dataup;
 
+import java.io.IOException;
+
 import javax.servlet.MultipartConfigElement;
 
 import org.springframework.boot.SpringApplication;
@@ -62,4 +64,10 @@ public class Application {
 		return factory.createMultipartConfig();
 	}
 
+	// Dependency injection for VideoFileManager
+	//
+	@Bean
+	public VideoFileManager videoFileManager() throws IOException {
+		return VideoFileManager.get();
+	}
 }
